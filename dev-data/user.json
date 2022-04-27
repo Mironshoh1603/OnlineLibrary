@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "login": "Mironshoh1603",
+    "password": "996887953",
+    "name": "Mironshoh",
+    "surname": "Asadov",
+    "age": 19
+  },
+  {
+    "id": 2,
+    "login": "Mironshoh2003",
+    "password": "996887953",
+    "name": "Mironshoh",
+    "surname": "Asadov",
+    "age": 20
+  },
+  {
+    "id": 1,
+    "login": "Mironshoh",
+    "password": "996887953",
+    "name": "Mironshoh",
+    "surname": "Asadov",
+    "age": 18
+  },
+  {
+    "id": 3,
+    "login": "Mironshoh16",
+    "password": "996887953",
+    "name": "Mironshoh",
+    "surname": "Asadov",
+    "age": 19
+  }
+]
