@@ -4,6 +4,13 @@ const app = express();
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Acces-Control-Allow-Origin", "*");
+  res.setHeader("Acces-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+  res.setHeader("Acces-Contorl-Allow-Methods", "Content-Type", "Authorization");
+  next();
+});
+
 const book = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/book.json`, "utf-8")
 );

@@ -1,53 +1,60 @@
-searchForm = document.querySelector('.search-form');
+searchForm = document.querySelector(".search-form");
 
-document.querySelector('#search-btn').onclick = () =>{
-  searchForm.classList.toggle('active');
-}
+document.querySelector("#search-btn").onclick = () => {
+  searchForm.classList.toggle("active");
+};
 
-let loginForm = document.querySelector('.login-form-container');
+let loginForm = document.querySelector("#sign-in");
+let signupForm = document.querySelector("#sign-up");
 
-document.querySelector('#login-btn').onclick = () =>{
-  loginForm.classList.toggle('active');
-}
+document.querySelector("#login-btn").onclick = () => {
+  loginForm.classList.add("active");
+  signupForm.classList.remove("active");
+};
 
-document.querySelector('#close-login-btn').onclick = () =>{
-  loginForm.classList.remove('active');
-}
+document.querySelector("#close-login-btn").onclick = () => {
+  loginForm.classList.remove("active");
+};
+document.querySelector("#close-signup-btn").onclick = () => {
+  signupForm.classList.remove("active");
+};
 
-window.onscroll = () =>{
+document.querySelector("#signup-btn").onclick = (e) => {
+  e.preventDefault();
+  loginForm.classList.remove("active");
+  signupForm.classList.add("active");
+};
 
-  searchForm.classList.remove('active');
+window.onscroll = () => {
+  searchForm.classList.remove("active");
 
-  if(window.scrollY > 80){
-    document.querySelector('.header .header-2').classList.add('active');
-  }else{
-    document.querySelector('.header .header-2').classList.remove('active');
+  if (window.scrollY > 80) {
+    document.querySelector(".header .header-2").classList.add("active");
+  } else {
+    document.querySelector(".header .header-2").classList.remove("active");
   }
+};
 
-}
-
-window.onload = () =>{
-
-  if(window.scrollY > 80){
-    document.querySelector('.header .header-2').classList.add('active');
-  }else{
-    document.querySelector('.header .header-2').classList.remove('active');
+window.onload = () => {
+  if (window.scrollY > 80) {
+    document.querySelector(".header .header-2").classList.add("active");
+  } else {
+    document.querySelector(".header .header-2").classList.remove("active");
   }
 
   fadeOut();
+};
 
+function loader() {
+  document.querySelector(".loader-container").classList.add("active");
 }
 
-function loader(){
-  document.querySelector('.loader-container').classList.add('active');
-}
-
-function fadeOut(){
+function fadeOut() {
   setTimeout(loader, 4000);
 }
 
 var swiper = new Swiper(".books-slider", {
-  loop:true,
+  loop: true,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
@@ -68,7 +75,7 @@ var swiper = new Swiper(".books-slider", {
 
 var swiper = new Swiper(".featured-slider", {
   spaceBetween: 10,
-  loop:true,
+  loop: true,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
@@ -96,7 +103,7 @@ var swiper = new Swiper(".featured-slider", {
 
 var swiper = new Swiper(".arrivals-slider", {
   spaceBetween: 10,
-  loop:true,
+  loop: true,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
@@ -117,8 +124,8 @@ var swiper = new Swiper(".arrivals-slider", {
 
 var swiper = new Swiper(".reviews-slider", {
   spaceBetween: 10,
-  grabCursor:true,
-  loop:true,
+  grabCursor: true,
+  loop: true,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
@@ -139,8 +146,8 @@ var swiper = new Swiper(".reviews-slider", {
 
 var swiper = new Swiper(".blogs-slider", {
   spaceBetween: 10,
-  grabCursor:true,
-  loop:true,
+  grabCursor: true,
+  loop: true,
   centeredSlides: true,
   autoplay: {
     delay: 9500,
@@ -158,3 +165,16 @@ var swiper = new Swiper(".blogs-slider", {
     },
   },
 });
+let data;
+const getBook = async function () {
+  await fetch("http://localhost:8000/api/v1/book/")
+    .then((res) => {
+      return res.json();
+    })
+    .then((response) => {
+      console.log(response);
+      return response;
+    });
+};
+
+getBook();
